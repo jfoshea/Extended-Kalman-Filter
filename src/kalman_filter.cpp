@@ -147,9 +147,9 @@ MatrixXd KalmanFilter::SetStateTransitionMatrix( const float dt ) {
 MatrixXd KalmanFilter::SetCovarianceMatrix( const float dt, const float noise_ax, const float noise_ay ){
 
 
-	auto dt2 = dt * dt;
-	auto dt3 = dt2 * dt;
-	auto dt4 = dt3 * dt;
+  auto dt2 = dt * dt;
+  auto dt3 = dt2 * dt;
+  auto dt4 = dt3 * dt;
 
   auto r0c0  = dt4/4 * noise_ax;
   auto r0c1  = 0.0;
@@ -171,14 +171,14 @@ MatrixXd KalmanFilter::SetCovarianceMatrix( const float dt, const float noise_ax
   auto r3c2  = 0.0;
   auto r3c3  = dt2 * noise_ay;
 
-	MatrixXd Q = MatrixXd( 4, 4 );
+  MatrixXd Q = MatrixXd( 4, 4 );
 
   Q <<  r0c0, r0c1, r0c2, r0c3,
         r1c0, r1c1, r1c2, r1c3,
         r2c0, r2c1, r2c2, r2c3,
         r3c0, r3c1, r3c2, r3c3;
 
-	return Q;
+  return Q;
 }
 
 //=============================================================================
